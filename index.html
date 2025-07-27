@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Davy's Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <section class="hero">
+      <img class="logo" src="https://i.postimg.cc/qvtqdBRP/logo-myportfolio.jpg" alt="Davy's Logo" />
+      <nav class="navbar">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#welcome">Welcome</a></li>
+          <li><a href="#projects">Samples & Projects</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#quote">Request a Quote</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <hr /><hr />
+
+    <div class="intro">
+      <div class="introduction">
+        <h1>DAVID</h1>
+        <h3>FRONT-END WEB DEVELOPER</h3>
+        <p>Turning ideas into interactive websites</p>
+        <button class="hire-me">Hire Me</button>
+      </div>
+      <i class="fas fa-laptop-code tech-genius-icon"></i>
+    </div>
+  </header>
+
+  <main>
+    <section id="welcome" class="s-welcome">
+      <h2 class="special">Welcome!!</h2>
+      <p class="welcome-message">
+        Welcome to my digital playground — where ideas meet clean, responsive, and user-focused design. I build websites that not only look good but work flawlessly on every screen. Let's bring your vision to life.
+      </p>
+      <p><span class="bold">"Visibility isn't just marketing, it's the gateway to global opportunity."</span></p>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Samples & Projects</h2>
+      <div class="project-query">
+        <div class="project-card">
+          <h3>Survey Form</h3>
+          <p>A clean and responsive form layout for collecting user feedback seamlessly.</p>
+          <a href="survey-form.jpg" data-lightbox="survey">
+            <img src="https://i.postimg.cc/htp2vyZh/Survey-photos1.jpg" alt="Survey" />
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Tribute Page</h3>
+          <p>A beautiful tribute layout showcasing structure, layout, and personal storytelling.</p>
+          <a href="tribute-page.jpg" data-lightbox="tribute">
+            <img src="https://i.postimg.cc/RFWhZBxG/tribute1.jpg" alt="Tribute" />
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Technical Documentation</h3>
+          <p>A developer-focused documentation page built for clarity and accessibility.</p>
+          <a href="technical-documentation-page.jpg" data-lightbox="docs">
+            <img src="https://i.postimg.cc/65rrXd0q/technical1.jpg" alt="Docs" />
+          </a>
+        </div>
+
+        <div class="project-card">
+          <h3>Landing Page</h3>
+          <p>An engaging landing page crafted to present products effectively and drive conversions.</p>
+          <a href="landing-page.jpg" data-lightbox="landing">
+            <img src="https://i.postimg.cc/zvSV9kr1/landing-page1.jpg" alt="Landing" />
+          </a>
+        </div>
+      </div>
+      <p>These are some of the projects I've worked on with screenshots of how responsive they are both on mobile and large screen devices such as tablets to large computers.</p>
+    </section>
+
+    <section id="services" class="services">
+      <h2>Our Services</h2>
+      <div class="service-cards no-wrap">
+        <div class="service-card one">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Responsive Web Development</h3>
+          <p class="service-description">We craft high-performance websites that seamlessly adapt to every screen size – from desktops to smartphones – ensuring a flawless user experience for all your visitors.</p>
+        </div>
+        <div class="service-card two">
+          <i class="fas fa-pencil-ruler"></i>
+          <h3>UI/UX Design</h3>
+          <p class="service-description">Designing intuitive and engaging interfaces with clear navigation and beautiful layouts to convert visitors into clients.</p>
+        </div>
+        <div class="service-card three">
+          <i class="fas fa-tools"></i>
+          <h3>Website Maintenance</h3>
+          <p class="service-description">Providing ongoing support, security updates, and performance optimizations to keep your website running smoothly.</p>
+        </div>
+      </div>
+      <p><span class="bold">"When you open your doors to the world online, the world steps in to do business"</span></p>
+    </section>
+
+    <section id="quote" class="quote-section">
+      <div class="quote-container">
+        <div class="quote-left">
+          <h2>Request a Quote</h2>
+          <form id="quote-form" action="https://usebasin.com/f/e73c74cb9910" method="POST">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" placeholder="Your name" required />
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Your email" required valid />
+            <label for="project-details">Project Details</label>
+            <textarea id="project-details" name="message" placeholder="Describe your project..." required></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <p id="confirmation" style="display:none; color:green; font-weight:bold; margin-top:1rem;">
+            ✅ Thank you! We'll get back to you shortly.
+          </p>
+        </div>
+        <div class="quote-right">
+          <h3>Get in Touch</h3>
+          <p>Let's Collaborate</p>
+          <a href="https://wa.me/254742177317?text=Hello%20Davy,%20I'm%20interested%20in%20your%20web%20development%20services." target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+          </a>
+          <a href="mailto:webfluxb@gmail.com?subject=Request%20Quote&body=Hi%20Davy,%0AI'm%20interested%20in%20working%20with%20you.%20Here%20are%20my%20project%20details..." class="email-btn">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script>
+    // Hamburger toggle + auto-close
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+    // Hire Me scroll
+    document.querySelector('.hire-me').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Basin form confirmation
+    const form = document.getElementById('quote-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then(res => {
+          if (res.ok) {
+            form.reset();
+            document.getElementById('confirmation').style.display = 'block';
+          } else throw 'Error';
+        })
+        .catch(() => alert('Submission failed.'));
+    });
+  </script>
+
+  <footer style="text-align:center; padding:20px 0; font-size:14px; color:#666;">
+    &copy; 2025 David Blessing. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,454 @@
+/* Base Reset */
+* {
+  box-sizing: border-box !important;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header & Navigation */
+header .hero {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.logo {
+  width: 25vw;
+  height: 15vh;
+  border-radius: 50%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  background: linear-gradient(45deg, rgb(110, 218, 226), rgb(172, 172, 235));
+  border-radius: 25px;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.navbar li:hover {
+  background-color: rgba(224, 248, 9, 0.2);
+  transform: scale(1.05);
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1002;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    left: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Intro Section (UPDATED) */
+.intro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping on desktop, handled by media query for mobile */
+  padding: 20px;
+  min-height: 50vh; /* Increased height for better visual impact */
+  /* Remove 'height: 20vh;' if it was explicitly set to avoid conflicts */
+  margin: 20px;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 0 20px #bbb;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(58, 23, 23);
+  text-align: center;
+}
+
+.introduction h1,
+.introduction h3,
+.introduction p {
+  margin: 1vh;
+}
+
+.hire-me {
+  background-color: rgb(132, 235, 132);
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hire-me:hover {
+  background-color: rgb(77, 201, 77);
+}
+
+/* NEW: Styling for the Font Awesome icon replacing the image */
+.tech-genius-icon {
+  font-size: 10vw; /* Adjust size relative to viewport width for responsiveness */
+  color: #3498DB; /* A professional blue color */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  /* Old .tech-genius styles like width, height, border-radius are removed/overridden */
+}
+
+.tech-genius-icon:hover {
+  transform: translateY(-5px); /* Lift slightly on hover */
+}
+
+
+/* Welcome Section */
+.s-welcome,
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2%;
+  text-align: center;
+}
+
+.special,
+h2 {
+  margin: 2px auto;
+  font-family: "Brush Script MT", cursive, sans-serif;
+  letter-spacing: 2px;
+  font-size: 60px;
+}
+
+p {
+  margin: 1px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+.bold {
+  font-weight: bold;
+  font-family: Georgia, serif;
+}
+
+/* Project Cards */
+.project-query {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 90%;
+  margin:0 auto;
+  max-width: 1200px;
+}
+
+.project-card {
+  background: #abdef8;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  border-left: 8px solid rgb(236, 236, 161);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Services */
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.service-card {
+  background: linear-gradient(45deg, rgb(110, 218, 226), rgb(172, 172, 235));
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 10px solid rgb(213, 5, 250);
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Quote Section */
+.quote-section {
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.quote-container {
+  background: white;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 16px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.quote-left h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.quote-left form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-left label {
+  font-weight: 600;
+  color: #333;
+}
+
+.quote-left input,
+.quote-left textarea {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+}
+
+.quote-left button {
+  background-color: #222;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 120px;
+  transition: background-color 0.3s ease;
+}
+
+.quote-left button:hover {
+  background-color: #444;
+}
+
+.quote-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.quote-right h3 {
+  font-size: 24px;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.quote-right p {
+  color: #555;
+  font-size: 16px;
+}
+
+.email,
+.contact-info {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.email {
+  left: 40px;
+}
+
+.contact-info {
+  right: 40px;
+}
+
+/* Media queries for responsiveness (UPDATED .intro) */
+@media (max-width: 768px) {
+  .intro { /* Main intro section stacks vertically */
+    flex-direction: column;
+    min-height: auto; /* Allow height to adjust based on content */
+    padding: 40px 20px; /* More padding when stacked */
+  }
+
+  .introduction { /* Space between text and icon when stacked */
+    margin-bottom: 30px;
+  }
+
+  .tech-genius-icon { /* Icon scales up on mobile for better visibility */
+    font-size: 25vw;
+  }
+
+  .quote-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  
+  .project-query{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Consider using auto-fit for truly responsive */
+    overflow: scroll; /* Still allows horizontal scroll for small screens if too many columns */
+    gap: 20px;
+  }
+  
+  .service-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    overflow: scroll; /* Allows horizontal scroll if cards are too wide */
+    text-align: center;
+  }
+  
+  .email,
+  .contact-info {
+    position: static;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .quote-right {
+    align-items: center;
+  }
+}
+
+/* Lightbox Fix */
+.lightboxOverlay {
+  z-index: 2000 !important;
+}
+
+.whatsapp-btn, .email-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.email-btn {
+  background-color: #0072c6;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1DA851;
+}
+
+.email-btn:hover {
+  background-color: #005fa3;
+}
+
+.whatsapp-btn i, .email-btn i {
+  margin-right: 8px;
+}
+
+/* === Force-hide mobile nav until hamburger clicked === */
+/* Removed redundant declarations at the end, consolidated here */
+.nav-links {
+  display: none !important;
+}
+
+.nav-links.active {
+  display: flex !important;
+}
+
+/* But on larger screens, keep your original layout */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+  }
+}
+
+/* Redundant media query removed from original, only one needed */
