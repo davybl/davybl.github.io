@@ -1,99 +1,117 @@
-/* Base Reset */
+/* Base Reset & Typography */
 * {
   box-sizing: border-box !important;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: white;
-  font-family: Arial, sans-serif;
+  /* Softer, more professional background */
+  background: #f8f9fa; /* A very light, almost white background */
+  font-family: 'Open Sans', sans-serif; /* Modern, readable sans-serif font */
   margin: 0;
   padding: 0;
+  color: #343a40; /* Dark gray for better readability */
+  padding-top: 20px; /* IMPORTANT: Adjust this based on your header's final height */
 }
 
-/* Header & Navigation */
+/* --- Header & Navigation --- */
 header .hero {
-  position: sticky;
-  top: 0;
+  margin: 0; /* Full width */
+  position: sticky; /* Make it sticky */
+  top: 15px; /* Sticks to the very top */
+  border-radius: 0; /* No rounded corners for full width */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 10px 20px;
+  padding: 15px 2%; /* Adjusted padding for content inside full-width header */
   z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer, more pronounced shadow */
 }
 
+/* Optional: Constrain logo/nav width and center them within the header */
+header .hero > * {
+  max-width: 1200px; /* Example max width */
+  margin: 0 auto; /* Center content */
+}
+
+/* Specific adjustments if needed due to header becoming full-width */
 .logo {
-  width: 25vw;
-  height: 15vh;
+  width: 150px; /* Fixed width for better control */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 50%;
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  margin-left: 0; /* Ensure no extra left margin if it was applied before */
+}
+
+.navbar {
+    margin-right: 0; /* Ensure no extra right margin if it was applied before */
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 25px; /* Increased gap for better spacing */
   padding: 0;
   margin: 0;
 }
 
 .navbar li {
-  background: linear-gradient(45deg, rgb(110, 218, 226), rgb(172, 172, 235));
-  border-radius: 25px;
-  padding: 5px 10px;
-  border: 1px solid black;
+  padding: 0;
+  border: none;
 }
 
 .navbar a {
   text-decoration: none;
-  color: black;
-  font-weight: bold;
+  color: #343a40; /* Darker text for contrast */
+  font-weight: 600; /* Slightly bolder */
+  padding: 8px 15px; /* Padding for click area */
+  border-radius: 8px; /* Slightly rounded corners for links */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-.navbar li:hover {
-  background-color: rgba(224, 248, 9, 0.2);
-  transform: scale(1.05);
+.navbar a:hover {
+  background-color: #e9ecef; /* Light background on hover */
+  color: #2a9d8f; /* Primary accent color on hover */
 }
 
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 28px; /* Larger icon */
   cursor: pointer;
   padding: 10px;
   z-index: 1002;
   position: relative;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
+  color: #2a9d8f; /* Primary accent color */
 }
 
 @media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Adjust logo size for smaller screens */
+  }
+
   .nav-links {
-    display: none;
+    /* Corrected: Hide by default on mobile */
+    display: none !important;
     flex-direction: column;
     gap: 15px;
     position: absolute;
-    top: 60px;
-    right: 60px;
-    left: 50%;
+    top: 100%; /* Position below the header */
+    left: 0;
+    right: 0;
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
+    border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Below hamburger, above content */
+    align-items: center; /* Center links in mobile menu */
   }
 
   .nav-links.active {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+    display: flex !important; /* Show when active */
   }
 
   .hamburger {
@@ -101,127 +119,244 @@ header .hero {
   }
 }
 
-/* Intro Section (UPDATED) */
+/* --- Intro Section --- */
 .intro {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: nowrap; /* Prevent wrapping on desktop, handled by media query for mobile */
-  padding: 20px;
-  min-height: 50vh; /* Increased height for better visual impact */
-  /* Remove 'height: 20vh;' if it was explicitly set to avoid conflicts */
-  margin: 20px;
+  flex-wrap: nowrap;
+  padding: 60px 20px; /* More vertical padding */
+  min-height: 60vh; /* Increased height */
+  margin: 30px 2%;
   border-radius: 16px;
   position: relative;
-  box-shadow: 0 0 20px #bbb;
+  background: linear-gradient(
+    to right,
+    #e0f2f7,
+    #c2e9fb
+  ); /* Subtle blue gradient */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Refined shadow */
+  overflow: hidden; /* Ensures icon doesn't overflow rounded corners */
 }
 
 .introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgb(58, 23, 23);
+  color: #212529; /* Darker text for headings */
   text-align: center;
+  z-index: 1; /* Ensure text is above potential background elements */
 }
 
-.introduction h1,
-.introduction h3,
+.introduction h1 {
+  font-family: 'Montserrat', sans-serif; /* Professional heading font */
+  font-size: 4em; /* Larger heading */
+  margin-bottom: 0;
+  color: #2a9d8f; /* Primary accent color */
+}
+
+.introduction h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8em;
+  margin-top: 5px;
+  color: #495057;
+}
+
 .introduction p {
-  margin: 1vh;
+  font-size: 1.1em;
+  margin-top: 15px;
+  max-width: 500px;
+  line-height: 1.6;
 }
 
 .hire-me {
-  background-color: rgb(132, 235, 132);
-  padding: 10px 20px;
+  background-color: #f4a261; /* Accent orange/gold */
+  color: white; /* White text for contrast */
+  padding: 14px 28px; /* Larger button */
   font-weight: bold;
+  font-size: 1.1em;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 30px; /* More rounded, pill-like */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 25px;
 }
 
 .hire-me:hover {
-  background-color: rgb(77, 201, 77);
+  background-color: #e78e4d; /* Slightly darker orange on hover */
+  transform: translateY(-2px); /* Subtle lift */
 }
 
-/* NEW: Styling for the Font Awesome icon replacing the image */
 .tech-genius-icon {
-  font-size: 10vw; /* Adjust size relative to viewport width for responsiveness */
-  color: #3498DB; /* A professional blue color */
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
-  /* Old .tech-genius styles like width, height, border-radius are removed/overridden */
+  font-size: 15vw; /* Slightly larger on desktop for impact */
+  color: #6c757d; /* Muted gray for a sophisticated tech vibe */
+  text-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  opacity: 0.2; /* Make it subtle, almost like a watermark */
+  position: absolute; /* Position freely */
+  right: 5%;
+  bottom: 5%;
+  z-index: 0; /* Keep it behind text */
 }
 
 .tech-genius-icon:hover {
-  transform: translateY(-5px); /* Lift slightly on hover */
+  transform: scale(1.05); /* Gentle scale on hover */
 }
 
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    min-height: auto;
+    padding: 40px 20px;
+  }
 
-/* Welcome Section */
+  .introduction {
+    margin-bottom: 20px;
+  }
+
+  .introduction h1 {
+    font-size: 2.8em;
+  }
+
+  .introduction h3 {
+    font-size: 1.4em;
+  }
+
+  .tech-genius-icon {
+    font-size: 40vw; /* Larger on mobile to fill space if needed */
+    right: auto;
+    bottom: auto;
+    position: relative; /* Revert to relative for stacking */
+    margin-top: 20px; /* Add space below text */
+    opacity: 0.1; /* Keep it subtle */
+  }
+}
+
+/* --- Welcome Section & General Section Styling --- */
 .s-welcome,
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2%;
+.projects,
+.services,
+.quote-section,
+.faq-section {
+  padding: 60px 20px; /* Consistent padding for sections */
+  margin: 30px auto; /* Centered with consistent margin */
+  max-width: 1200px; /* Max width for readability */
+  background: white; /* White background for sections */
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow */
   text-align: center;
 }
 
-.special,
-h2 {
-  margin: 2px auto;
-  font-family: "Brush Script MT", cursive, sans-serif;
-  letter-spacing: 2px;
-  font-size: 60px;
+.s-welcome {
+  padding-bottom: 40px; /* Less padding at the bottom for welcome */
+}
+
+h2,
+.special {
+  font-family: 'Montserrat', sans-serif; /* Consistent heading font */
+  font-size: 2.8em; /* Slightly smaller for section headers */
+  margin-bottom: 30px; /* More space below headings */
+  color: #2a9d8f; /* Primary accent color */
+  letter-spacing: normal; /* Remove excessive letter spacing */
 }
 
 p {
-  margin: 1px;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  font-size: 16px;
+  font-size: 1.05em; /* Slightly larger body text */
+  line-height: 1.7; /* Improved line height for readability */
+  max-width: 800px;
+  margin: 0 auto 20px auto; /* Centered paragraphs with bottom margin */
+  color: #495057; /* Slightly darker body text */
 }
 
 .bold {
-  font-weight: bold;
-  font-family: Georgia, serif;
+  font-weight: 700; /* Use numerical weight for consistency */
+  font-family: 'Montserrat', sans-serif; /* Apply heading font for bold phrases */
+  color: #343a40;
 }
 
-/* Project Cards */
+/* --- Project Cards (Horizontal Scroll on Mobile) --- */
 .project-query {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 90%;
-  margin:0 auto;
-  max-width: 1200px;
+  display: flex; /* Changed to flexbox for horizontal layout */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scroll-snap-type: x mandatory; /* Optional: Snap to cards when scrolling */
+  gap: 20px; /* Gap between cards */
+  padding-bottom: 20px; /* Add some padding for the scrollbar */
+  width: 90%; /* Keep width for the container on desktop */
+  margin: 0 auto; /* Center the container on desktop */
+  max-width: none; /* Allow it to stretch if needed for scroll */
+  justify-content: flex-start; /* Align items to the start */
 }
 
 .project-card {
-  background: #abdef8;
+  min-width: 280px; /* Ensure cards have a minimum width on desktop/tablet */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  scroll-snap-align: start; /* Optional: Align cards to the start when snapping */
+  background: #fdfdfd; /* Very light background */
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  padding: 25px; /* More padding */
   text-align: center;
-  border-left: 8px solid rgb(236, 236, 161);
+  border-left: 6px solid #f4a261; /* Accent color for the border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Flexbox for internal alignment */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2a9d8f; /* Primary accent for project titles */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 0.95em;
+  color: #6c757d; /* Muted text for descriptions */
+  flex-grow: 1; /* Allows paragraph to take available space */
 }
 
 .project-card img {
   width: 100%;
-  height: auto;
+  height: 200px; /* Fixed height for image consistency */
+  object-fit: cover; /* Ensures images fit without distortion */
   border-radius: 8px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  margin-top: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
 .project-card img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transform: scale(1.02); /* Subtle scale on image hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Services */
+/* Specific media query for project cards on mobile */
+@media (max-width: 768px) {
+  .project-query {
+    padding-left: 20px; /* Add some padding on the left for better visual */
+    padding-right: 20px; /* Add some padding on the right */
+    width: auto; /* Let it stretch horizontally if needed */
+  }
+
+  .project-card {
+    min-width: 80vw; /* Make cards take up 80% of the viewport width */
+    max-width: 80vw; /* Ensure they don't get too big */
+    margin-right: 15px; /* Space between cards */
+  }
+  .project-card:last-child {
+    margin-right: 20px; /* Ensures the last card has padding at the end */
+  }
+}
+
+
+/* --- Services --- */
 .services {
   display: flex;
   flex-direction: column;
@@ -231,33 +366,48 @@ p {
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
   gap: 30px;
-  padding: 20px;
-  width: 90%;
-  margin: auto;
-  max-width: 1200px;
+  padding: 20px 0;
 }
 
 .service-card {
-  background: linear-gradient(45deg, rgb(110, 218, 226), rgb(172, 172, 235));
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-left: 10px solid rgb(213, 5, 250);
+  background: #fdfdfd; /* Light background */
+  border-radius: 12px;
+  padding: 30px; /* More padding */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-bottom: 6px solid #2a9d8f; /* Primary accent for border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .service-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .service-card i {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 3.5rem; /* Larger icons */
+  margin-bottom: 20px;
+  color: #f4a261; /* Accent color for icons */
 }
 
-/* Quote Section */
+.service-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.service-card .service-description {
+  font-size: 0.95em;
+  color: #6c757d;
+  margin-bottom: 0; /* Remove bottom margin if last element in card */
+}
+
+/* --- Quote Section (Reverted to original structure with new colors) --- */
 .quote-section {
   padding: 40px 20px;
   background: #f9f9f9;
@@ -279,7 +429,8 @@ p {
 .quote-left h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #111;
+  color: #2a9d8f; /* Using the new accent color */
+  text-align: left; /* Ensure it aligns left as per original */
 }
 
 .quote-left form {
@@ -290,21 +441,21 @@ p {
 
 .quote-left label {
   font-weight: 600;
-  color: #333;
+  color: #343a40; /* Using the new text color */
 }
 
 .quote-left input,
 .quote-left textarea {
   padding: 12px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da; /* Lighter border from new palette */
   border-radius: 8px;
   outline: none;
   resize: vertical;
 }
 
-.quote-left button {
-  background-color: #222;
+.quote-left button[type="submit"] { /* Targeted specifically for submit */
+  background-color: #2a9d8f; /* Primary accent for submit button */
   color: white;
   font-weight: bold;
   padding: 12px;
@@ -315,8 +466,8 @@ p {
   transition: background-color 0.3s ease;
 }
 
-.quote-left button:hover {
-  background-color: #444;
+.quote-left button[type="submit"]:hover {
+  background-color: #217e74; /* Darker primary on hover */
 }
 
 .quote-right {
@@ -328,87 +479,22 @@ p {
 
 .quote-right h3 {
   font-size: 24px;
-  color: #111;
+  color: #343a40; /* Using the new text color */
   margin-bottom: 10px;
 }
 
 .quote-right p {
-  color: #555;
+  color: #6c757d; /* Using the new muted text color */
   font-size: 16px;
+  margin: 1px; /* Reverted original margin for p */
+  line-height: 1.5; /* Reverted original line-height for p */
+  letter-spacing: 0.5px; /* Reverted original letter-spacing for p */
 }
 
-.email,
-.contact-info {
-  position: absolute;
-  bottom: 20px;
-  font-size: 14px;
-  color: #333;
-}
-
-.email {
-  left: 40px;
-}
-
-.contact-info {
-  right: 40px;
-}
-
-/* Media queries for responsiveness (UPDATED .intro) */
-@media (max-width: 768px) {
-  .intro { /* Main intro section stacks vertically */
-    flex-direction: column;
-    min-height: auto; /* Allow height to adjust based on content */
-    padding: 40px 20px; /* More padding when stacked */
-  }
-
-  .introduction { /* Space between text and icon when stacked */
-    margin-bottom: 30px;
-  }
-
-  .tech-genius-icon { /* Icon scales up on mobile for better visibility */
-    font-size: 25vw;
-  }
-
-  .quote-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 30px 20px;
-  }
-  
-  .project-query{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Consider using auto-fit for truly responsive */
-    overflow: scroll; /* Still allows horizontal scroll for small screens if too many columns */
-    gap: 20px;
-  }
-  
-  .service-cards{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    overflow: scroll; /* Allows horizontal scroll if cards are too wide */
-    text-align: center;
-  }
-  
-  .email,
-  .contact-info {
-    position: static;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .quote-right {
-    align-items: center;
-  }
-}
-
-/* Lightbox Fix */
-.lightboxOverlay {
-  z-index: 2000 !important;
-}
-
+/* Original contact buttons with new colors */
 .whatsapp-btn, .email-btn {
-  display: inline-block;
-  background-color: #25D366;
+  display: inline-block; /* Original display */
+  background-color: #25D366; /* Kept original WhatsApp green */
   color: white;
   font-weight: bold;
   padding: 10px 15px;
@@ -419,7 +505,7 @@ p {
 }
 
 .email-btn {
-  background-color: #0072c6;
+  background-color: #007bff; /* Changed to a standard blue for email */
 }
 
 .whatsapp-btn:hover {
@@ -427,28 +513,152 @@ p {
 }
 
 .email-btn:hover {
-  background-color: #005fa3;
+  background-color: #0056b3;
 }
 
 .whatsapp-btn i, .email-btn i {
   margin-right: 8px;
 }
 
-/* === Force-hide mobile nav until hamburger clicked === */
-/* Removed redundant declarations at the end, consolidated here */
-.nav-links {
-  display: none !important;
-}
+/* Original media query for quote section */
+@media (max-width: 768px) {
+  .quote-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 20px;
+  }
 
-.nav-links.active {
-  display: flex !important;
-}
-
-/* But on larger screens, keep your original layout */
-@media (min-width: 769px) {
-  .nav-links {
-    display: flex !important;
+  .quote-right {
+    align-items: center;
   }
 }
 
-/* Redundant media query removed from original, only one needed */
+/* Lightbox Fix (ensure it's above everything) */
+.lightboxOverlay {
+  z-index: 2000 !important;
+}
+.lb-outerContainer {
+  z-index: 2001 !important;
+}
+
+
+/* --- FAQ Section --- */
+.faq-btn {
+  border-radius: 30px; /* Pill shape */
+  margin: 30px auto; /* Centered with more margin */
+  padding: 15px 30px; /* More padding */
+  text-align: center;
+  background: #f4a261; /* Accent color */
+  color: white; /* White text */
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block; /* Make it a block element to center with margin auto */
+  max-width: 300px; /* Limit width */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.faq-btn:hover {
+  background: #e78e4d; /* Darker accent on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.faq-section {
+  max-width: 900px; /* Slightly wider FAQ section */
+  margin: 30px auto; /* Consistent margin */
+  padding: 40px; /* More padding */
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  background-color: white;
+  display: none; /* Controlled by JavaScript */
+}
+
+.faq-section h2 {
+  font-size: 2.2em;
+  margin-bottom: 40px; /* More space below main FAQ heading */
+  color: #2a9d8f;
+}
+
+.faq-category {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6em; /* Larger category headings */
+  color: #343a40;
+  margin-top: 35px; /* Space above category */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e9ecef; /* Subtle separator */
+  padding-bottom: 10px;
+  text-align: left; /* Align category to left */
+}
+
+.faq-item {
+  margin-bottom: 10px;
+  border: 1px solid #e9ecef; /* Light border around each item */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures inner elements respect border-radius */
+}
+
+.faq-question {
+  background: #fdfdfd; /* Very light background for questions */
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 18px 25px; /* More padding */
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+  color: #343a40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '\002B'; /* Plus sign unicode character */
+  font-size: 1.5em;
+  color: #2a9d8f; /* Accent color for the icon */
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  content: "\2212"; /* Minus sign unicode character */
+  transform: rotate(180deg); /* Rotate for animated effect */
+}
+
+.faq-question:hover {
+  background: #eef7f9; /* Subtle hover background */
+  color: #2a9d8f; /* Change text color on hover */
+}
+
+.faq-question.active {
+  background: #eef7f9;
+  color: #2a9d8f;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px 25px 20px 25px; /* Adjust padding for answer */
+  background: #fafbff; /* Slightly different background for answer */
+  font-size: 1.0em;
+  line-height: 1.7;
+  color: #495057;
+  border-top: 1px solid #e9ecef; /* Separator from question */
+}
+
+.faq-question.active + .faq-answer {
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 30px 0; /* More padding */
+  font-size: 0.9em;
+  color: #6c757d; /* Muted color for footer text */
+  background-color: #f1f3f5; /* Light gray background */
+  margin-top: 50px; /* Space above footer */
+}
