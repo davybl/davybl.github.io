@@ -8,40 +8,49 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 
 <body>
 
-  <header class="hero">
-    <section class="hero">
-      <img class="logo" src="https://i.postimg.cc/qvtqdBRP/logo-myportfolio.jpg" alt="Davy's Logo" />
-      <nav class="navbar">
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#welcome">Welcome</a></li>
-          <li><a href="#projects">Samples & Projects</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#quote">Request a Quote</a></li>
-          <li><a href="about.html">About & Portfolio</a></li>
-        </ul>
-      </nav>
-    </section>
-    <hr>
-    <hr>
-
-    <div class="intro">
-      <div class="introduction">
-        <h1>DAVID</h1>
-        <h3>FRONT-END WEB DEVELOPER</h3>
-        <p>Turning ideas into interactive websites</p>
-        <button class="hire-me">Hire Me</button>
+  <header class="main-header">
+    <img class="logo" src="https://i.postimg.cc/qvtqdBRP/logo-myportfolio.jpg" alt="Davy's Logo" />
+    <nav class="navbar">
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
       </div>
-      <i class="fas fa-laptop-code tech-genius-icon"></i>
-    </div>
+      <ul class="nav-links" id="nav-links">
+        <div class="nav-group">
+            <li class="nav-group-title">Explore This Page</li>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#projects">Samples & Projects</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#quote">Request a Quote</a></li>
+        </div>
+
+        <li class="nav-separator"></li>
+
+        <div class="nav-group">
+            <li class="nav-group-title">More Pages</li>
+            <li><a href="services.html">Services Page</a></li>
+            <li><a href="about.html">About & Portfolio</a></li>
+            </div>
+      </ul>
+    </nav>
   </header>
+
+  <hr>
+  <hr>
+
+  <div class="intro">
+    <div class="introduction">
+      <h1>DAVID</h1>
+      <h3>FRONT-END WEB DEVELOPER</h3>
+      <p>Turning ideas into interactive websites</p>
+      <button class="hire-me">Hire Me</button>
+    </div>
+    <i class="fas fa-laptop-code tech-genius-icon"></i>
+  </div>
 
   <main>
     <section id="welcome" class="s-welcome">
@@ -59,7 +68,7 @@
         <div class="project-card">
           <h3>Survey Form</h3>
           <p>A clean and responsive form layout for collecting user feedback seamlessly.</p>
-          <a href="survey-form.jpg" data-lightbox="survey">
+          <a href="https://i.postimg.cc/htp2vyZh/Survey-photos1.jpg" data-lightbox="survey" data-title="Survey Form - Desktop">
             <img src="https://i.postimg.cc/htp2vyZh/Survey-photos1.jpg" alt="Survey" />
           </a>
         </div>
@@ -67,7 +76,7 @@
         <div class="project-card">
           <h3>Tribute Page</h3>
           <p>A beautiful tribute layout showcasing structure, layout, and personal storytelling.</p>
-          <a href="tribute-page.jpg" data-lightbox="tribute">
+          <a href="https://i.postimg.cc/RFWhZBxG/tribute1.jpg" data-lightbox="tribute" data-title="Tribute Page - Desktop">
             <img src="https://i.postimg.cc/RFWhZBxG/tribute1.jpg" alt="Tribute" />
           </a>
         </div>
@@ -75,7 +84,7 @@
         <div class="project-card">
           <h3>Technical Documentation</h3>
           <p>A developer-focused documentation page built for clarity and accessibility.</p>
-          <a href="technical-documentation-page.jpg" data-lightbox="docs">
+          <a href="https://i.postimg.cc/65rrXd0q/technical1.jpg" data-lightbox="docs" data-title="Technical Documentation - Desktop">
             <img src="https://i.postimg.cc/65rrXd0q/technical1.jpg" alt="Docs" />
           </a>
         </div>
@@ -83,7 +92,7 @@
         <div class="project-card">
           <h3>Landing Page</h3>
           <p>An engaging landing page crafted to present products effectively and drive conversions.</p>
-          <a href="landing-page.jpg" data-lightbox="landing">
+          <a href="https://i.postimg.cc/zvSV9kr1/landing-page1.jpg" data-lightbox="landing" data-title="Landing Page - Desktop">
             <img src="https://i.postimg.cc/zvSV9kr1/landing-page1.jpg" alt="Landing" />
           </a>
         </div>
@@ -149,11 +158,10 @@
       </div>
     </section>
 
-    <button class='faq-btn'>Have a question? <br>Feel free to acces some of the FAQs!</button>
+    <button class='faq-btn'>Have a question? <br>Feel free to access some of the FAQs!</button>
     <section id="faq-section" class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
-      <!-- GENERAL SERVICES -->
       <h3 class="faq-category">General Services</h3>
 
       <div class="faq-item">
@@ -178,7 +186,6 @@
         </div>
       </div>
 
-      <!-- PROJECT TIMELINE -->
       <h3 class="faq-category">Project Timeline</h3>
 
       <div class="faq-item">
@@ -197,7 +204,6 @@
         </div>
       </div>
 
-      <!-- PRICING & PAYMENT -->
       <h3 class="faq-category">Pricing & Payment</h3>
 
       <div class="faq-item">
@@ -215,7 +221,6 @@
         </div>
       </div>
 
-      <!-- FEATURES & INTEGRATIONS -->
       <h3 class="faq-category">Features & Integrations</h3>
 
       <div class="faq-item">
@@ -233,7 +238,6 @@
         </div>
       </div>
 
-      <!-- POST-LAUNCH & MAINTENANCE -->
       <h3 class="faq-category">Post-Launch & Maintenance</h3>
 
       <div class="faq-item">
@@ -255,20 +259,13 @@
     </section>
 
   </main>
-  
-  <script>
-    console.log("Inline script working");
-  </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-  <script>
-    
-  </script>
   <footer style="text-align:center; padding:20px 0; font-size:14px; color:#666;">
     &copy; 2025 David Blessing. All rights reserved.
   </footer>
 
+  <script src="script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>

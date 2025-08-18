@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - WebFlux</title>
+    <link rel="stylesheet" href="services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="services.js" defer></script>
+</head>
+<body>
+
+    <header class="hero">
+            <img class="logo" src="https://i.postimg.cc/qvtqdBRP/logo-myportfolio.jpg" alt="Davy's Logo" />
+            <nav class="navbar">
+                <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About & Portfolio</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <main id="services-page-main">
+        <section class="s-welcome services-hero">
+            <h2 class="special">Our Comprehensive Services</h2>
+            <p class="welcome-message">At WebFlux, I combine creativity with technical expertise to build digital solutions that drive real results for your business. From captivating designs to robust functionality, discover how I can bring your vision to life.</p>
+        </section>
+
+        <section class="services-detail-section">
+            <div class="service-category">
+                <h3><i class="fas fa-laptop-code"></i> Responsive Web Development</h3>
+                <p>I build high-performance websites that look and function flawlessly on any device, from desktops to smartphones. My focus is on clean, efficient code and modern web standards to ensure optimal speed and user experience.</p>
+                <ul>
+                    <li>*Custom Website Builds:* Tailored solutions from scratch to meet your unique business needs.</li>
+                    <li>*E-commerce Development:* Secure and scalable online stores (e.g., Shopify, WooCommerce integration) to boost your sales. [1, 2]</li>
+                    <li>*Performance Optimization:* Ensuring fast loading times and smooth interactions for better user engagement and SEO.</li>
+                    <li>*Cross-Browser Compatibility:* Websites that perform consistently across all major web browsers.</li>
+                </ul>
+                <p class="service-benefit">*Benefit:* Reach a wider audience, improve search engine rankings, and provide an exceptional experience for every visitor, leading to higher conversions.</p>
+            </div>
+
+            <div class="service-category">
+                <h3><i class="fas fa-pencil-ruler"></i> UI/UX Design</h3>
+                <p>User Interface (UI) and User Experience (UX) design are at the heart of every successful website. I craft intuitive, engaging, and aesthetically pleasing interfaces that convert visitors into loyal customers.</p>
+                <ul>
+                    <li>*User Research & Analysis:* Understanding your target audience to design truly user-centric experiences.</li>
+                    <li>*Wireframing & Prototyping:* Visualizing the user flow and interface structure before development begins.</li>
+                    <li>*Intuitive Interface Design:* Creating clean, modern, and easy-to-navigate layouts.</li>
+                    <li>*Accessibility Compliance:* Ensuring your website is usable by everyone, including those with disabilities.</li>
+                </ul>
+                <p class="service-benefit">*Benefit:* Enhance user satisfaction, reduce bounce rates, and create a strong, memorable brand identity through thoughtful design.</p>
+            </div>
+
+            <div class="service-category">
+                <h3><i class="fas fa-tools"></i> Website Maintenance & Support</h3>
+                <p>Your website is a living asset that requires ongoing care. I provide comprehensive maintenance services to keep your site secure, updated, and performing at its peak, allowing you to focus on your business.</p>
+                <ul>
+                    <li>*Security Updates & Monitoring:* Protecting your site from vulnerabilities and cyber threats.</li>
+                    <li>*Bug Fixes & Troubleshooting:* Prompt resolution of any technical issues.</li>
+                    <li>*Performance Monitoring:* Regular checks to ensure optimal speed and functionality.</li>
+                    <li>*Content Updates & Backups:* Keeping your information current and safeguarding your data.</li>
+                </ul>
+                <p class="service-benefit">*Benefit:* Enjoy peace of mind knowing your website is always secure, fast, and up-to-date, minimizing downtime and maximizing reliability.</p>
+            </div>
+        </section>
+
+        <section class="quote-section services-cta">
+            <div class="quote-container">
+                <div class="quote-left">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Let's discuss how my web development services can help your business thrive online. Request a personalized quote today!</p>
+                    <a href="index.html#quote" class="hire-me">Request a Free Quote</a>
+                </div>
+                <div class="quote-right">
+                    <h3>Have Questions?</h3>
+                    <p>I'm here to help. Reach out directly for a consultation.</p>
+                    <a href="https://wa.me/254742177317?text=Hello%20Davy,%20I'm%20interested%20in%20your%20web%20development%20services."
+                        target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                    <a href="mailto:webfluxb@gmail.com?subject=Services%20Inquiry&body=Hi%20Davy,%0AI'm%20interested%20in%20learning%20more%20about%20your%20services..."
+                        class="email-btn">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align:center; padding:20px 0; font-size:14px; color:#666;">
+        &copy; 2025 David Blessing. All rights reserved.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Re-include the hamburger menu toggle and smooth scroll for this page
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+            navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }));
+        }
+    </script>
+</body>
+</html>

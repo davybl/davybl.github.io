@@ -1,6 +1,6 @@
 /* Base Reset & Typography */
 * {
-  box-sizing: border-box !important;
+  box-sizing: border-box!important;
 }
 
 html {
@@ -14,16 +14,17 @@ body {
   margin: 0;
   padding: 0;
   color: #343a40; /* Dark gray for better readability */
-  padding-top: 20px; /* IMPORTANT: Increased to prevent content from hiding under sticky header */
+  padding-top: 25px; /* IMPORTANT: Adjust this based on your header's final height */
 }
 
 /* --- Header & Navigation --- */
-header.main-header { /* Changed selector to match new HTML class */
-  margin: 0 10px; /* Full width, remove previous 10px margin */
+header.hero {
+  margin: 0; /* Full width */
   position: sticky; /* Make it sticky */
   top: 0; /* Sticks to the very top */
-  border-radius: 5px; /* No rounded corners for full width */
+  border-radius: 8px; /* No rounded corners for full width */
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background: white;
@@ -32,11 +33,13 @@ header.main-header { /* Changed selector to match new HTML class */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
 }
 
-#welcome, #projects, #services, #services, #quote, #about {
-  scroll-margin-top: 80px;
+/* Optional: Constrain logo/nav width and center them within the header */
+header.hero > * {
+  max-width: 1200px; /* Example max width */
+  margin: 0 auto; /* Center content */
 }
 
-/* Specific adjustments for logo */
+/* Specific adjustments if needed due to header becoming full-width */
 .logo {
   width: 150px; /* Fixed width for better control */
   height: auto; /* Maintain aspect ratio */
@@ -57,7 +60,6 @@ header.main-header { /* Changed selector to match new HTML class */
   margin: 0;
 }
 
-/* Default styling for individual nav links on desktop */
 .navbar li {
   padding: 0;
   border: none;
@@ -77,9 +79,8 @@ header.main-header { /* Changed selector to match new HTML class */
   color: #2a9d8f; /* Primary accent color on hover */
 }
 
-/* Hamburger menu icon */
 .hamburger {
-  display: none; /* Hidden by default on desktop */
+  display: none;
   font-size: 28px; /* Larger icon */
   cursor: pointer;
   padding: 10px;
@@ -88,120 +89,34 @@ header.main-header { /* Changed selector to match new HTML class */
   color: #2a9d8f; /* Primary accent color */
 }
 
-/* Hide navigation grouping elements on desktop */
-@media (min-width: 769px) {
-    .nav-group,
-    .nav-group-title,
-    .nav-separator {
-        display: contents; /* Makes children participate in flex layout, but hides container */
-    }
-    /* Ensure regular list items are displayed as flex items on desktop */
-    .navbar ul.nav-links li {
-        display: list-item; /* Or initial, or block, depending on desired spacing */
-    }
-}
-
-
-/* --- Mobile Specific Styles (Hamburger Menu) --- */
 @media (max-width: 768px) {
-  .logo {
+ .logo {
     width: 100px; /* Adjust logo size for smaller screens */
   }
 
-  /* Hamburger menu becomes visible on mobile */
-  .hamburger {
-    display: block;
-    
-  }
-
-  /* Navigation links container on mobile - SLIDE-IN FROM RIGHT */
-  .navbar ul.nav-links {
-    display: flex; /* Always flex so transition works, hidden by right position */
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align content to the left within the menu */
-    gap: 0;
-    position: fixed; /* Use fixed for slide-out drawer relative to viewport */
-    top: 80px; /* Start from the very top of the viewport */
-    right: -40%; /* Initial position: 40% off-screen to the right */
-    width: 40%; /* Desired width: 40% of the screen */
-    height: calc(100vh - 80px); /* Full viewport height */
+ .nav-links {
+    /* Corrected: Hide by default on mobile */
+    display: none!important;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    right: 0;
     background-color: white;
-    padding: 20px 0; /* Vertical padding for the overall menu */
-    margin: 30px 5px;
-    border-radius: 5px;
-    box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.3); /* Shadow to make it look like it slides over content */
-    z-index: 999;
-    transition: right 0.3s ease-in-out; /* Smooth slide-in/out transition */
-    overflow-y: auto; /* Enable scrolling if menu content exceeds height */
-    /* border-left: 1px solid #e0e0e0; / / Optional: subtle border on the left edge */
+    padding: 20px;
+    border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Below hamburger, above content */
+    align-items: center; /* Center links in mobile menu */
   }
 
-  /* When active, slide into view */
-  .navbar ul.nav-links.active {
-      right: 0; /* Slide into view */
+ .nav-links.active {
+    display: flex!important; /* Show when active */
   }
 
-  /* Navigation Grouping for Mobile Menu */
-  .nav-group {
-      width: 100%; /* Ensure each group takes full width */
-      padding: 10px 20px; /* Padding for the group content */
-      margin-bottom: 15px; /* Space between groups */
-      border-bottom: 1px solid #e9ecef; /* Subtle separator line for groups */
-  }
-
-  .nav-group:last-of-type {
-      border-bottom: none; /* No border for the last group */
-      margin-bottom: 0;
-  }
-
-  .nav-group-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9em; /* Slightly smaller for group titles */
-      font-weight: 700; /* Bold */
-      color: #6c757d; /* Muted color for headings */
-      text-transform: uppercase; /* All caps for clarity */
-      margin-bottom: 10px; /* Space below title */
-      padding: 0 0 5px 0; /* Small padding at bottom */
-      border-bottom: 1px solid #f1f3f5; /* Very subtle line under title */
-      list-style: none; /* Remove bullet if any */
-      display: block; /* Ensure it behaves as a block */
-  }
-
-  /* Style the actual navigation links within the groups on mobile */
-  .nav-group li {
-      width: 100%; /* Make links take full width of their group */
-      margin-bottom: 5px; /* Space between links in a group */
-      padding: 0; /* Reset padding from general li rules */
-      list-style: none; /* Ensure no bullets */
-  }
-
-  .nav-group li:last-child {
-      margin-bottom: 0;
-  }
-
-  .nav-group li a {
-      padding: 8px 0; /* Adjust padding for mobile links */
-      display: block; /* Make the whole link area clickable */
-      text-align: left; /* Align text to the left */
-      font-size: 1.1em; /* Make link text larger for mobile */
-      font-weight: 400; /* Regular weight for main links */
-      color: #343a40; /* Standard link color */
-      border-radius: 4px; /* Slightly rounded for individual links */
-  }
-
-  .nav-group li a:hover {
-      background-color: #f1f3f5; /* Light hover effect */
-      color: #2a9d8f; /* Accent color on hover */
-  }
-
-  /* Styles for the separator line between groups on mobile */
-  .nav-separator {
-      display: block; /* Ensure it's visible */
-      width: calc(100% - 40px); /* Adjust width to match content padding */
-      height: 1px;
-      background-color: #e9ecef; /* Light gray line */
-      margin: 10px auto 25px auto; /* Centered with vertical spacing */
-      list-style: none; /* Remove any default list styling */
+ .hamburger {
+    display: block;
   }
 }
 
@@ -291,25 +206,25 @@ header.main-header { /* Changed selector to match new HTML class */
 }
 
 @media (max-width: 768px) {
-  .intro {
+ .intro {
     flex-direction: column;
     min-height: auto;
     padding: 40px 20px;
   }
 
-  .introduction {
+ .introduction {
     margin-bottom: 20px;
   }
 
-  .introduction h1 {
+ .introduction h1 {
     font-size: 2.8em;
   }
 
-  .introduction h3 {
+ .introduction h3 {
     font-size: 1.4em;
   }
 
-  .tech-genius-icon {
+ .tech-genius-icon {
     font-size: 40vw; /* Larger on mobile to fill space if needed */
     right: auto;
     bottom: auto;
@@ -425,18 +340,18 @@ p {
 
 /* Specific media query for project cards on mobile */
 @media (max-width: 768px) {
-  .project-query {
+ .project-query {
     padding-left: 20px; /* Add some padding on the left for better visual */
     padding-right: 20px; /* Add some padding on the right */
     width: auto; /* Let it stretch horizontally if needed */
   }
 
-  .project-card {
+ .project-card {
     min-width: 80vw; /* Make cards take up 80% of the viewport width */
     max-width: 80vw; /* Ensure they don't get too big */
     margin-right: 15px; /* Space between cards */
   }
-  .project-card:last-child {
+ .project-card:last-child {
     margin-right: 20px; /* Ensures the last card has padding at the end */
   }
 }
@@ -487,7 +402,7 @@ p {
   color: #343a40;
 }
 
-.service-card .service-description {
+.service-card.service-description {
   font-size: 0.95em;
   color: #6c757d;
   margin-bottom: 0; /* Remove bottom margin if last element in card */
@@ -578,7 +493,7 @@ p {
 }
 
 /* Original contact buttons with new colors */
-.whatsapp-btn, .email-btn {
+.whatsapp-btn,.email-btn {
   display: inline-block; /* Original display */
   background-color: #25D366; /* Kept original WhatsApp green */
   color: white;
@@ -602,31 +517,29 @@ p {
   background-color: #0056b3;
 }
 
-.whatsapp-btn i, .email-btn i {
+.whatsapp-btn i,.email-btn i {
   margin-right: 8px;
 }
 
 /* Original media query for quote section */
 @media (max-width: 768px) {
-  .quote-container {
+ .quote-container {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 30px 20px;
   }
 
-  .quote-right {
+ .quote-right {
     align-items: center;
   }
 }
 
 /* Lightbox Fix (ensure it's above everything) */
-/* Important! Lightbox's own CSS already includes high z-indexes.
-   Only override if you find specific conflicts. */
 .lightboxOverlay {
-  z-index: 2000 !important;
+  z-index: 2000!important;
 }
 .lb-outerContainer {
-  z-index: 2001 !important;
+  z-index: 2001!important;
 }
 
 
@@ -737,7 +650,7 @@ p {
   border-top: 1px solid #e9ecef; /* Separator from question */
 }
 
-.faq-question.active + .faq-answer {
+.faq-question.active +.faq-answer {
   display: block;
 }
 
@@ -752,9 +665,6 @@ footer {
 }
 
 /* Services Page Specific Styles (Refined) */
-/* Note: These rules are relevant if you also have a services.html page,
-   and they should ideally be in a separate CSS file for that page,
-   or clearly commented if kept here for a single-page portfolio. */
 .services-hero {
     padding-bottom: 60px;
 }
@@ -858,56 +768,5 @@ footer {
 /* Mobile Responsiveness for Services Page (Refined) */
 @media (max-width: 768px) {
  .services-detail-section {
-        grid-template-columns: 1fr; /* Stack services on mobile */
-        padding: 20px;
-        gap: 30px;
-    }
-
- .service-category {
-        padding: 25px;
-        text-align: center; /* Center text for better mobile appearance */
-    }
-
- .service-category h3 {
-        font-size: 1.5em;
-        flex-direction: column; /* Stack icon and text on small screens */
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
- .service-category h3 i {
-        font-size: 2em; /* Larger icon on mobile */
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
- .service-category p {
-        text-align: center; /* Ensure paragraphs are centered */
-    }
-
- .service-category ul {
-        text-align: left; /* Keep list items left-aligned for readability */
-        padding-left: 0; /* Remove padding from ul itself */
-        margin-left: auto; /* Center the ul block */
-        margin-right: auto; /* Center the ul block */
-        max-width: 280px; /* Constrain width of ul for better centering */
-    }
-
- .service-category ul li {
-        padding-left: 0;
-        text-align: left; /* Ensure list items are left-aligned */
-        display: flex; /* Use flex to align checkmark and text */
-        align-items: flex-start; /* Align to top if text wraps */
-        margin-bottom: 8px;
-    }
-
- .service-category ul li::before {
-        position: static; /* Remove absolute positioning for checkmark */
-        margin-right: 8px; /* Add space after checkmark */
-        flex-shrink: 0; /* Prevent checkmark from shrinking */
-    }
-
-  .service-benefit {
-        text-align: center;
-    }
-}
+        grid-template-columns: 1fr; }/* Stack services */
+ }
