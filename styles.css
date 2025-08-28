@@ -91,10 +91,14 @@ header.main-header { /* Changed selector to match new HTML class */
 /* Hide navigation grouping elements on desktop */
 @media (min-width: 769px) {
     .nav-group,
-    .nav-group-title,
     .nav-separator {
         display: contents; /* Makes children participate in flex layout, but hides container */
     }
+
+    .navbar ul.nav-links .nav-group-title {
+      display: none;
+    }
+
     /* Ensure regular list items are displayed as flex items on desktop */
     .navbar ul.nav-links li {
         display: list-item; /* Or initial, or block, depending on desired spacing */
